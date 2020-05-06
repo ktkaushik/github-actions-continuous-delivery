@@ -3,3 +3,9 @@ name: Staging deployment
 on: 
   pull_request:
     types: [labeled]
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    
+    if: contains(github.event.pull_requests.labels.*.name, 'stage')
